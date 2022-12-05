@@ -1,0 +1,42 @@
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onAddFilm()">
+  <ion-card>
+    <ion-card-header>
+
+      <ion-card-subtitle>{{naslov}}</ion-card-subtitle>
+      <ion-card-title>Film</ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content>
+
+        <ion-item>
+          <!-- <ion-label position="stacked">Slika filma:  </ion-label> -->
+          <ion-input placeholder="Slika filma" type="text" ngModel name="slikaUrl" required></ion-input>
+        </ion-item>
+        <ion-item>
+
+        <!-- <ion-label position="stacked">Naziv filma:  </ion-label> -->
+          <ion-input placeholder="Naziv filma" type="text" ngModel name="nazivFilm" required></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <!-- <ion-label position="stacked">Opis filma:</ion-label> -->
+          <ion-input  placeholder="Utisak o filmu" type="text"  ngModel name="opis" required></ion-input>
+        </ion-item>
+  <ion-item>
+        <!-- <ion-label position="stacked">Zanr:</ion-label> -->
+          <ion-input placeholder="Žanr filma" type="text"  ngModel name="zanr" required></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <!-- <ion-label position="stacked">Detaljan opis filma:</ion-label> -->
+          <ion-input placeholder="Ocena" type="text"  ngModel name="detaljanOpis" required></ion-input>
+        </ion-item>
+
+        <ion-button fill="clear" (click)="otkaziAkc()">Otkaži</ion-button>
+        <ion-button fill="clear" [disabled]="f.invalid" (click)="onAddFilm()">Sačuvaj</ion-button>
+    </ion-card-content>
+  </ion-card>
+  </form>
+  </ion-content>
+

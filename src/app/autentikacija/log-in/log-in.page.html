@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button defaultHref="/filmovi/tabs/romanticni">
+      </ion-back-button>
+    </ion-buttons>-->
+    <ion-title>Prijavljivanje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+  <form  #logInForm="ngForm" (ngSubmit)="onLogIn(logInForm)">
+  <ion-list>
+
+    <ion-item>
+    <ion-label position="stacked">
+      E-mail:
+    </ion-label>
+    <ion-input type="email" ngModel name="email" required email #email="ngModel"></ion-input>
+    </ion-item>
+    <ion-item lines="none" *ngIf="email.invalid && email.touched">
+      <ion-label>Mora imati najmanje 7 karaktera</ion-label>
+    </ion-item>
+    <!-- <div *ngFor="let error of errorMessages.email">
+      <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched )">
+        <small class="error-message"> {{error.message}}</small> -->
+
+      <!-- </ng-container> -->
+
+    <!-- </div> -->
+
+
+    <ion-item>
+    <ion-label position="stacked">
+      Lozinka:
+    </ion-label>
+    <ion-input type="password" ngModel name="password" required minlength="7" #password="ngModel"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="password.invalid && password.touched">
+      <ion-label>Mora imati najmanje 7 karaktera</ion-label>
+    </ion-item>
+    <!-- <div *ngFor="let error of errorMessages.password">
+      <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched )">
+        <small class="error-message"> {{error.message}}</small>
+
+      </ng-container>
+
+    </div> -->
+
+
+  </ion-list>
+  <ion-button color="tertiary" type="submit" expand="block" shape="round" [disabled]="logInForm.invalid"> Prijavi se </ion-button>
+
+</form>
+
+
+
+  <ion-item>
+    <h5> Nemate nalog?</h5>
+
+    <ion-button color="tertiary"  type="submit" expand="block" routerLink="/sign-up"> Registrujte se</ion-button>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-button type="submit" slot="end" color="warning" (click)="otvoriModal()">Dodaj film</ion-button>
+    <ion-title>Filmovi</ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<!-- <ion-content>
+<ion-list>
+  <app-filmovi-element *ngFor="let film of filmovi" [film]="film" ></app-filmovi-element>
+</ion-list>
+</ion-content> -->
+<!--[routerLink]="['/','filmovi','tabs','romanticni', film.nazivFilm]"-->
+
+<ion-content padding class="background">
+
+<ion-searchbar placeholder="Pretraži film"  inputmode="text" (ionInput)="filtered($event)"></ion-searchbar>
+<ion-slides class="slidesControl">
+  <ion-slide *ngFor= "let film of filmovi" >
+    <app-filmovi-element [film]="film" [routerLink]="film.id" ></app-filmovi-element>
+  </ion-slide>
+</ion-slides>
+
+
+</ion-content>

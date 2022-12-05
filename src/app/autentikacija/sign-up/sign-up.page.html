@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/filmovi/tabs/romanticni">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrovanje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+
+  <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="stacked">
+          Ime:
+        </ion-label>
+        <!-- autocapitalize inputmode="text" -->
+        <ion-input  type="text" formControlName="ime"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Prezime:</ion-label>
+          <ion-input type="text" formControlName="prezime"></ion-input>
+        </ion-item>
+        <!-- <div *ngFor="let error of errorMessages.ime">
+          <ng-container *ngIf="ime.hasError(error.type) && (ime.dirty || ime.touched )">
+            <small class="error-message"> {{error.message}}</small>
+
+          </ng-container>
+
+        </div> -->
+
+
+          <!-- <div *ngFor="let error of errorMessages.prezime">
+            <ng-container *ngIf="prezime.hasError(error.type) && (prezime.dirty || prezime.touched )">
+              <small class="error-message"> {{error.message}}</small>
+
+            </ng-container>
+
+          </div> -->
+
+         <ion-item>
+      <ion-label position="stacked">
+        E-mail:
+      </ion-label>
+      <ion-input  type="email"  formControlName="email" ></ion-input>
+      </ion-item>
+      <ion-row *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
+        <ion-col size-sm="6" offset-sm="3">
+          <p>Should be a valid email address.</p>
+        </ion-col>
+      </ion-row>
+      <!-- <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched )">
+          <small class="error-message"> {{error.message}}</small>
+
+        </ng-container>
+
+      </div> -->
+
+      <ion-item>
+      <ion-label position="stacked">
+        Lozinka:
+      </ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <ion-row *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">
+        <ion-col size-sm="6" offset-sm="3">
+          <p>Should be minimum 7 characters long.</p>
+        </ion-col>
+      </ion-row>
+      <!-- <div *ngFor="let error of errorMessages.password">
+        <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched )">
+          <small class="error-message"> {{error.message}}</small>
+
+        </ng-container>
+
+      </div> -->
+
+
+
+    </ion-list>
+    <ion-button  type="submit" color="tertiary" shape="round" expand="block"> Registruj se </ion-button>
+
+  </form>
+
+</ion-content>

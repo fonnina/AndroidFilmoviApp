@@ -1,0 +1,42 @@
+<ion-header>
+      <ion-toolbar color="secondary">
+
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/filmovi/tabs/romanticni">
+          </ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Film</ion-title>
+      </ion-toolbar>
+    </ion-header>
+      <ion-content>
+
+        <ion-card *ngIf="!isLoading">
+
+          <ion-card-content>
+          <ion-img [src]="film.slikaUrl"></ion-img>
+        </ion-card-content>
+
+
+            <ion-card-header>
+              <ion-card-title>{{film.nazivFilm}}</ion-card-title>
+              <ion-card-subtitle>Žanr: {{film.zanr}}</ion-card-subtitle>
+            </ion-card-header>
+
+
+
+
+            <ion-card-content>
+              Utisak o filmu:
+              {{film.opis}}
+            </ion-card-content>
+          <ion-card-content>
+            Ocena:
+            {{film.detaljanOpis}}
+          </ion-card-content>
+
+        </ion-card>
+ <ion-button color="tertiary"  (click)="onEditFilm()">Izmeni film</ion-button>
+           <ion-button color="tertiary"  (click)="onDeleteFilm()">Izbriši film</ion-button>
+      </ion-content>
+
